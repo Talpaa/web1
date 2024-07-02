@@ -1,0 +1,5 @@
+iframe {width:"560"; height:"315"}
+<iframe src="vid/partita1.mp4" title="Francia-Belgio 1-0: gli highlights degli Europei 2024"></iframe>
+<iframe src="vid/partita2.mp4" title="Spagna-Georgia 4-1: gol e highlights degli Europei 2024"></iframe>
+<iframe src="vid/partita3.mp4" title="Inghilterra-Slovacchia 2-1: gol e highlights degli Europei 2024"></iframe>
+<iframe src="vid/partita4.mp4" title="Portogallo-Slovenia 3-0 d.c.r: gli highlights degli Europei 2024"></iframe>
