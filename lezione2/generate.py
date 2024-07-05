@@ -7,7 +7,8 @@ def genera_pag_html(n: int):
                            AMAZON
                       </div>
                   </div>
-            </div>'''
+            </div>
+            <br>'''
     
     pag12 = '''<div id="Pagina12" class="container text-center">
                     <div class="row">
@@ -24,7 +25,8 @@ def genera_pag_html(n: int):
                             <br>TECLAST PC Portatile F16Plus Notebook 15.6" Full HD</a>
                         </div>
                     </div>
-                </div>'''
+                </div>
+                '''
     
     pag13 = '''<div id="Pagina13" class="container text-center">
                     <div class="row">
@@ -68,7 +70,7 @@ def genera_pag_html(n: int):
         file.write(html_template)
 
 
-n = 20
+n = 5
 
 genera_pag_html(n)
 
