@@ -70,8 +70,6 @@ def genera_pag_html(n: int):
         file.write(html_template)
 
 
-n = 5
-
-genera_pag_html(n)
-
-
+if __name__ == "__main__":
+    n = 5
+    genera_pag_html(n)
