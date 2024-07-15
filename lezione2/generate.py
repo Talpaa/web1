@@ -65,7 +65,7 @@ def genera_pag_html(n: int):
 
                             </html>'''
     
-    with open("template.html", "w") as file:
+    with open("lezione2/template.html", "w") as file:
 
         file.write(html_template)
 
