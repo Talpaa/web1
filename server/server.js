@@ -37,9 +37,9 @@ app.get('/sendFile', (req, res) => {
     res.sendFile("sendFile.html", { root: './htdoc' });
     });
 
-//pagina di gestione dei dati della form se il metodo è POST
+//pagina di gestione dei dati della form se il metodo è GET
 app.get('/gestisciDatiForm', (req, res) => {
-    console.log(req.body.fname);
+    console.log(req.query.fname);
     response = "<html>Buona serata " + req.query.fname +" "+ req.query.fcognome;
     if(req.query.fsesso == "1")
         response += "<br>Sei un maschio"
@@ -47,6 +47,19 @@ app.get('/gestisciDatiForm', (req, res) => {
         response += "<br>Sei una femmina"
     response += "<br>Ti voglio bene"
     response += "<br>La tua città è " + req.query.fComune
+    res.send(response);
+    });
+
+//pagina di gestione dei dati della form se il metodo è POST
+app.post('/gestisciDatiForm', (req, res) => {
+    console.log(req.body.fname);
+    response = "<html>Buona mattinata " + req.body.fname +" "+ req.body.fcognome;
+    if(req.body.fsesso == "1")
+        response += "<br>Sei un maschio"
+    else
+        response += "<br>Sei una femmina"
+    response += "<br>Ti voglio bene"
+    response += "<br>La tua città è " + req.body.fComune
     res.send(response);
     });
 
