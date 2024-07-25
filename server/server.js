@@ -37,6 +37,18 @@ app.get('/sendFile', (req, res) => {
     res.sendFile("sendFile.html", { root: './htdoc' });
     });
 
+//pagina di gestione dei dati della form se il metodo è POST
+app.post('/gestisciDatiForm', (req, res) => {
+    console.log(req.body.fname);
+    express.response = "<html>Buona serata " + req.query.fname;
+    if(req.query.fsesso == "1")
+        response += "<br>Sei un maschio"
+    else
+        response += "<br>Sei una femmina"
+    response += "<br>Ti voglio bene"
+    res.send("<html>Buona serata a tutti</html>" + req.query.fname + "</html>");
+    });
+
 //GESTIONE DELLA URL MANSENDFILE
 /*
 app.post('/mansendfile', (req, res) => {
