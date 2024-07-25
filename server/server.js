@@ -38,15 +38,16 @@ app.get('/sendFile', (req, res) => {
     });
 
 //pagina di gestione dei dati della form se il metodo è POST
-app.post('/gestisciDatiForm', (req, res) => {
+app.get('/gestisciDatiForm', (req, res) => {
     console.log(req.body.fname);
-    express.response = "<html>Buona serata " + req.query.fname;
+    response = "<html>Buona serata " + req.query.fname +" "+ req.query.fcognome;
     if(req.query.fsesso == "1")
         response += "<br>Sei un maschio"
     else
         response += "<br>Sei una femmina"
     response += "<br>Ti voglio bene"
-    res.send("<html>Buona serata a tutti</html>" + req.query.fname + "</html>");
+    response += "<br>La tua città è " + req.query.fComune
+    res.send(response);
     });
 
 //GESTIONE DELLA URL MANSENDFILE
@@ -70,12 +71,12 @@ function uploadFiles(req, res) {
 }
 
 
-
+/*
 app.get('/gestisciDatiForm', (req, res) => {
     console.log(req.query.fname);
     res.send("<html>Buona serata " + req.query.fname + "</html>");
     });
-
+*/
 /*
 //var mylist = "[{\"id\": 1,\"item\": \"panino con la mortadella\"},{\"id\": 2,\"item\": \"baguette\"}]";
 var mylist="";
