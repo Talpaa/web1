@@ -75,15 +75,6 @@ app.get('/gestisciDatiForm', (req, res) => {
     console.log(req.query.fname);
     res.send("<html>Buona serata " + req.query.fname + "</html>");
     });
-    
-
-
-
-
-
-
-
-
 
 /*
 //var mylist = "[{\"id\": 1,\"item\": \"panino con la mortadella\"},{\"id\": 2,\"item\": \"baguette\"}]";
