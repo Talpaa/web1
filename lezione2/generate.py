@@ -65,13 +65,11 @@ def genera_pag_html(n: int):
 
                             </html>'''
     
-    with open("template.html", "w") as file:
+    with open("./template.html", "w") as file:
 
         file.write(html_template)
 
 
-n = 5
-
-genera_pag_html(n)
-
-
+if __name__ == "__main__":
+    n = 5
+    genera_pag_html(n)
