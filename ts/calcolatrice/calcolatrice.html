@@ -8,6 +8,7 @@
 	html {
   font-size: 62.5%;
   box-sizing: border-box;
+  background-color: #4e5972;
 }
 
 *, *::before, *::after {
@@ -23,13 +24,14 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
+  width: 900px;
+  background-color: #ffffff;
 }
 
 .calculator-screen {
   width: 100%;
   font-size: 5rem;
-  height: 80px;
+  height: 200px;
   border: none;
   background-color: #252525;
   color: #fff;
@@ -39,7 +41,7 @@
 }
 
 button {
-  height: 60px;
+  height: 180px;
   background-color: #fff;
   border-radius: 3px;
   border: 1px solid #c4c4c4;
@@ -97,12 +99,10 @@ button:hover {
 
         function InserisciNumero(num){
 
-            console.log("Hai chiesto di gestire il numero " + num)
-
-            if(document.getElementById("schermo").value == "0"){
+            if((document.getElementById("schermo").value == "0")||(flag == true)||(document.getElementById("schermo").value == parziale)){
 
                 document.getElementById("schermo").value = num
-                
+                flag = false
 
             }else{
 
@@ -123,18 +123,70 @@ button:hover {
 
         function Somma(){
 
-            parziale = parseFloat(document.getElementById("schermo").value)
+          if (parziale != ""){
+            Uguale()
+          }
+          
+          parziale = parseFloat(document.getElementById("schermo").value)
             operazione = "+"
-            document.getElementById("schermo").value = "0"
+          
+        }
+
+        function Sottrazione(){
+
+          if (parziale != ""){
+            Uguale()
+          }
+
+          parziale = parseFloat(document.getElementById("schermo").value)
+          operazione = "-"
+        }
+
+        function Moltiplicazione(){
+
+          if (parziale != ""){
+            Uguale()
+          }
+
+          parziale = parseFloat(document.getElementById("schermo").value)
+          operazione = "*"
+        }
+
+        function Divisione(){
+
+          if (parziale != ""){
+            Uguale()
+          }
+
+          parziale = parseFloat(document.getElementById("schermo").value)
+          operazione = "/"
         }
 
         function Uguale(){
 
-            parziale += parseFloat(document.getElementById("schermo").value)
+            if(operazione == "+"){
+              parziale += parseFloat(document.getElementById("schermo").value)
+            }else if(operazione == "-"){
+              parziale -= parseFloat(document.getElementById("schermo").value)
+            }else if(operazione == "*"){
+              parziale *= parseFloat(document.getElementById("schermo").value)
+            }else if(operazione == "/"){
+              parziale /= parseFloat(document.getElementById("schermo").value)
+            }
 
-            document.getElementById("schermo").value = String(parziale)
+            if (parziale == ""){
+              document.getElementById("schermo").value = "0"
+            }else{
+              document.getElementById("schermo").value = String(parziale)
+              flag = true
+            }
+
+            parziale = ""
+            operazione = ""
+
         }
 
+        var flag = false
         var parziale = ""
         var operazione = ""
     </script>
@@ -143,14 +195,14 @@ button:hover {
 <body>
 	<div class="calculator">
 
-		<input type="text" id="schermo" class="calculator-screen" value="0" disabled />
+		<input type="text" id="schermo" class="calculator-screen" value="0"  disabled/>
 		
 		<div class="calculator-keys">
 		  
-		  <button type="button" class="operator" value="+" onclick="Somma()">+</button>
-		  <button type="button" class="operator" value="-">-</button>
-		  <button type="button" class="operator" value="*">&times;</button>
-		  <button type="button" class="operator" value="/">&divide;</button>
+		  <button type="button" class="operator" value="+" onclick="Somma()">+  </button>
+		  <button type="button" class="operator" value="-" onclick="Sottrazione()">-</button>
+		  <button type="button" class="operator" value="*" onclick="Moltiplicazione()">&times;</button>
+		  <button type="button" class="operator" value="/" onclick="Divisione()">&divide;</button>
 	  
 		  <button type="button" value="7" onclick="InserisciNumero(value)">7</button>
 		  <button type="button" value="8" onclick="InserisciNumero(value)">8</button>
